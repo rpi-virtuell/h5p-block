@@ -25,7 +25,7 @@ function register_acf_block_types() {
 	acf_register_block_type(array(
 		'name'              => 'h5p-block',
 		'title'             => __('H5P Content'),
-		'description'       => __('A custom testimonial block.'),
+		'description'       => __('Insert h5p content.'),
 		'render_template'   => plugin_dir_path( __FILE__ ) . 'template-parts/blocks/h5p-block/h5p-block.php',
 		'category'          => 'common',
 		'icon'              => 'book-alt',
