@@ -10,10 +10,8 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'h5p-' . $block['id'];
-if( !empty($block['anchor']) ) {
-	$id = $block['anchor'];
-}
+$bid = 'h5p-' . $block['id'];
+
 
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'h5p-block';
@@ -31,7 +29,9 @@ $id = get_field('h5p_inhalt') ?: '';
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php if (  $id == '' ) { ?>
     Bitte einen H5P Inhalt auswählen.
-    <?php } else { ?>
-    [h5p id="<?php echo $id; ?>"]
+    <?php } else {
+        $link = get_site_url() . "/ru/" . $id; ?>
+    [h5p id="<?php echo $id; ?>"]<br>
+    Link zu diesem <a href="<?php echo $link; ?>">Material</a> <input style="display:hidden;" type="text" value="<?php echo $link; ?>" id="link-<?php echo $bid; ?>"><button onclick="copyh5purl2clipboard('link-<?php echo $bid; ?>')">Link in Zwischenablage kopieren</button><br><br>
     <?php } ?>
 </div>

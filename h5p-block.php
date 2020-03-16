@@ -99,11 +99,21 @@ if( function_exists('acf_register_block_type') ) {
 	add_action('acf/init', 'register_acf_block_types');
 }
 
-function my_h5p_acf_load_value( $value, $post_id, $field ) {
+function check_h5p_shortlinks() {
+	if ( is_404() ) {
+		$uri = $_SERVER[ 'REQUEST_URI' ];
+		if ( strpos( $uri, '/ru/') !== false ) {
+			$temp = (int) substr( $uri, 4 );
+			wp_redirect( admin_url() . "admin-ajax.php?action=h5p_embed&id=" . $temp);
+			exit;
 
-
-	return $value;
+		}
+	}
 }
+add_filter('template_redirect', 'check_h5p_shortlinks' );
 
-// Apply to all fields.
-//add_filter('acf/load_value/key=field_5e6e360f8da77', 'my_h5p_acf_load_value', 1, 3);
+
+function register_frontend_plugin_styles() {
+	wp_enqueue_script( 'rw-h5pblock-js',  plugin_dir_url( __FILE__ ) . 'js/h5pblock.js' );
+}
+add_action('wp_enqueue_scripts','register_frontend_plugin_styles' );
