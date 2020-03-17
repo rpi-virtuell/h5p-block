@@ -31,7 +31,8 @@ $id = get_field('h5p_inhalt') ?: '';
     Bitte einen H5P Inhalt auswählen.
     <?php } else {
         $link = get_site_url() . "/ru/" . $id; ?>
-    [h5p id="<?php echo $id; ?>"]<br>
+
+        <iframe src="<?php echo admin_url(); ?>admin-ajax.php?action=h5p_embed&id=<?php echo $id; ?>" width="578" height="350" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="<?php echo site_url(); ?>/wp-content/plugins/h5p/h5p-php-library/js/h5p-resizer.js" charset="UTF-8"></script>
     Link zu diesem <a href="<?php echo $link; ?>">Material</a> <input style="display:hidden;" type="text" value="<?php echo $link; ?>" id="link-<?php echo $bid; ?>"><button onclick="copyh5purl2clipboard('link-<?php echo $bid; ?>')">Link in Zwischenablage kopieren</button><br><br>
     <?php } ?>
 </div>

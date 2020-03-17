@@ -115,5 +115,12 @@ add_filter('template_redirect', 'check_h5p_shortlinks' );
 
 function register_frontend_plugin_styles() {
 	wp_enqueue_script( 'rw-h5pblock-js',  plugin_dir_url( __FILE__ ) . 'js/h5pblock.js' );
+	wp_enqueue_script( 'rw-resizer-h5pblock-js',  plugin_dir_url( __FILE__ ) . '../h5p/h5p-php-library/js/h5p-resizer.js' );
 }
 add_action('wp_enqueue_scripts','register_frontend_plugin_styles' );
+
+function register_admin_plugin_styles() {
+	wp_enqueue_script( 'rw-resizer-h5pblock-js',  plugin_dir_url( __FILE__ ) . '../h5p/h5p-php-library/js/h5p-resizer.js' );
+}
+add_action('admin_enqueue_scripts','register_admin_plugin_styles' );
+
