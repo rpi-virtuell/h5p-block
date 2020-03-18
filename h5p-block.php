@@ -71,6 +71,32 @@ function register_acf_block_types() {
 					'return_format' => 'value',
 					'placeholder' => '',
 				),
+				array(
+					'key' => 'field_5e723bd3a4b2c',
+					'label' => 'URL Block ausblenden',
+					'name' => 'hide_url',
+					'type' => 'radio',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						0 => 'Nein',
+						1 => 'Ja',
+					),
+					'allow_custom' => 0,
+					'default_value' => array(
+						0,
+					),
+					'layout' => 'vertical',
+					'toggle' => 0,
+					'return_format' => 'value',
+					'save_custom' => 0,
+				),
 			),
 			'location' => array(
 				array(
